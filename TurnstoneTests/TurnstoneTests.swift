@@ -8,22 +8,27 @@
 
 import Foundation
 import XCTest
+import Inquiline
 import Turnstone
 
-class TurnstoneTests: XCTestCase {
-  var turnstone = Turnstone()
+class NestTurnstoneTests: XCTestCase {
+  var turnstone:Turnstone<Environ, Environ, Response>!
+
+  override func setUp() {
+    turnstone = NestTurnstone()
+  }
 
   func testReturns404ForUnhandledURIs() {
-    let response = turnstone.nest([:])
+    let response = turnstone.route([:])
     XCTAssertEqual(response.0, "404 NOT FOUND")
   }
 
   func testCustomHandlerForUnhandledURIs() {
-    turnstone.notFoundHandler = { environ in
+    turnstone = NestTurnstone({ environ in
       return ("200 CUSTOM NOT FOUND", [], "Custom Not Found")
-    }
+    })
 
-    let response = turnstone.nest([:])
+    let response = turnstone.route([:])
     XCTAssertEqual(response.2!, "Custom Not Found")
   }
 
@@ -32,18 +37,48 @@ class TurnstoneTests: XCTestCase {
       return ("200 OK", [], "Root URI")
     }
 
-    let response = turnstone.nest(["PATH_INFO": "/"])
+    let response = turnstone.route(["PATH_INFO": "/"])
+    XCTAssertEqual(response.0, "200 OK")
+  }
+}
+
+class NestParameterTurnstoneTests: XCTestCase {
+  var turnstone:Turnstone<Environ, (Environ, URIParameters), Response>!
+
+  override func setUp() {
+    turnstone = NestParameterTurnstone()
+  }
+
+  func testReturns404ForUnhandledURIs() {
+    let response = turnstone.route([:])
+    XCTAssertEqual(response.0, "404 NOT FOUND")
+  }
+
+  func testCustomHandlerForUnhandledURIs() {
+    turnstone = NestParameterTurnstone({ environ in
+      return ("200 CUSTOM NOT FOUND", [], "Custom Not Found")
+    })
+
+    let response = turnstone.route([:])
+    XCTAssertEqual(response.2!, "Custom Not Found")
+  }
+
+  func testRegisteredURI() {
+    turnstone.addRoute("/") { (environ, parameters) in
+      return ("200 OK", [], "Root URI")
+    }
+
+    let response = turnstone.route(["PATH_INFO": "/"])
     XCTAssertEqual(response.0, "200 OK")
   }
 
-  func testRegisteredURIVariables() {
-    turnstone.addRoute("/tasks/{id}") { environ, parameters in
+  func testRegisteredURIVariable() {
+    turnstone.addRoute("/tasks/{id}") { (environ, parameters) in
       let id = parameters["id"]!
-      return ("200 OK", [], "Task \(id)")
+      return ("200 OK", [], "Tasks \(id)")
     }
 
-    let response = turnstone.nest(["PATH_INFO": "/tasks/5"])
-    XCTAssertEqual(response.0, "200 OK")
-    XCTAssertEqual(response.2!, "Task 5")
+    let response = turnstone.route(["PATH_INFO": "/tasks/5"])
+    XCTAssertEqual(response.2!, "Tasks 5")
   }
 }
