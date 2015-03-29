@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
   spec.name = 'Turnstone'
   spec.version = '0.1.0'
-  spec.summary = 'Nest URI Routing.'
+  spec.summary = 'Lightweight request routing for Nest using URI Template.'
   spec.homepage = 'https://github.com/kylef/Turnstone'
   spec.license = { :type => 'BSD', :file => 'LICENSE' }
   spec.author = { 'Kyle Fuller' => 'kyle@fuller.li' }
