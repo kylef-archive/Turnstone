@@ -1,0 +1,13 @@
+PODS:
+  - Nest (0.1.0)
+  - URITemplate (1.1.0)
+
+DEPENDENCIES:
+  - Nest (~> 0.1.0)
+  - URITemplate (~> 1.1)
+
+SPEC CHECKSUMS:
+  Nest: 004f02b96c6fef406563f6e64d16f958ea90f7ae
+  URITemplate: 4eca238bb7afa9a3626e471a5766351cef7069d3
+
+COCOAPODS: 0.36.1
