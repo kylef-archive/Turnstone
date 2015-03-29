@@ -17,7 +17,7 @@ pod 'Turnstone'
 ```swift
 import Turnstone
 
-var turnstone = Turnstone()
+var turnstone = NestParameterTurnstone()
 
 turnstone.addRoute("/") { environ, parameters in
   return ("200 OK", [], "Root URI")
@@ -28,7 +28,7 @@ turnstone.addRoute("/tasks/{id}") { environ, parameters in
   return ("200 OK", [], "Task \(id)")
 }
 
-serve("localhost", 8080, turnstone.nest)
+serve("localhost", 8080, turnstone.route)
 ```
 
 ## License
