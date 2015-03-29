@@ -1,0 +1,9 @@
+language: objective-c
+before_install:
+- gem install cocoapods --no-document
+- gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+- pod install
+script:
+- set -o pipefail
+- pod lib lint
+- xcodebuild -workspace Turnstone.xcworkspace -scheme Turnstone test -sdk macosx | xcpretty -c

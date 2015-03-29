@@ -1,5 +1,7 @@
 # Turnstone
 
+[![Build Status](http://img.shields.io/travis/kylef/Turnstone/master.svg?style=flat)](https://travis-ci.org/kylef/Turnstone)
+
 Lightweight request routing for [Nest](https://github.com/nestproject/Nest).
 Turnstone allows you to register a URI Template against a handler to provide
 request routing.
