@@ -10,6 +10,8 @@
 		275B55211AC86A5E00EE3517 /* Turnstone.h in Headers */ = {isa = PBXBuildFile; fileRef = 275B55201AC86A5E00EE3517 /* Turnstone.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		275B55271AC86A5E00EE3517 /* Turnstone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 275B551B1AC86A5E00EE3517 /* Turnstone.framework */; };
 		275B552E1AC86A5E00EE3517 /* TurnstoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275B552D1AC86A5E00EE3517 /* TurnstoneTests.swift */; };
+		275B55381AC86B8C00EE3517 /* Turnstone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275B55371AC86B8C00EE3517 /* Turnstone.swift */; };
+		3736396220B8C4F87B446324 /* Pods_TurnstoneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 340B31D0DE3AAF3C58FA0238 /* Pods_TurnstoneTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A4BD056693BEC3AEA367501D /* Pods_Turnstone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C1D228B8385944CD43CACD /* Pods_Turnstone.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -31,6 +33,10 @@
 		275B55261AC86A5E00EE3517 /* TurnstoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TurnstoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		275B552C1AC86A5E00EE3517 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		275B552D1AC86A5E00EE3517 /* TurnstoneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnstoneTests.swift; sourceTree = "<group>"; };
+		275B55371AC86B8C00EE3517 /* Turnstone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Turnstone.swift; sourceTree = "<group>"; };
+		340B31D0DE3AAF3C58FA0238 /* Pods_TurnstoneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TurnstoneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91A20611906EEF89C1D60783 /* Pods-TurnstoneTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TurnstoneTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TurnstoneTests/Pods-TurnstoneTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A3C60C2000A070F6C3000947 /* Pods-TurnstoneTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TurnstoneTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TurnstoneTests/Pods-TurnstoneTests.release.xcconfig"; sourceTree = "<group>"; };
 		C6C1D228B8385944CD43CACD /* Pods_Turnstone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Turnstone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30AAB6CFE7F121AAC564EC5 /* Pods-Turnstone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Turnstone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Turnstone/Pods-Turnstone.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -49,6 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				275B55271AC86A5E00EE3517 /* Turnstone.framework in Frameworks */,
+				3736396220B8C4F87B446324 /* Pods_TurnstoneTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				275B55201AC86A5E00EE3517 /* Turnstone.h */,
+				275B55371AC86B8C00EE3517 /* Turnstone.swift */,
 				275B551E1AC86A5E00EE3517 /* Supporting Files */,
 			);
 			path = Turnstone;
@@ -115,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				C6C1D228B8385944CD43CACD /* Pods_Turnstone.framework */,
+				340B31D0DE3AAF3C58FA0238 /* Pods_TurnstoneTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -124,6 +133,8 @@
 			children = (
 				F30AAB6CFE7F121AAC564EC5 /* Pods-Turnstone.debug.xcconfig */,
 				196599BEB4A8F403F2A9806B /* Pods-Turnstone.release.xcconfig */,
+				91A20611906EEF89C1D60783 /* Pods-TurnstoneTests.debug.xcconfig */,
+				A3C60C2000A070F6C3000947 /* Pods-TurnstoneTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -167,9 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 275B55341AC86A5E00EE3517 /* Build configuration list for PBXNativeTarget "TurnstoneTests" */;
 			buildPhases = (
+				3F324B1CE5601E3539FD32D6 /* Check Pods Manifest.lock */,
 				275B55221AC86A5E00EE3517 /* Sources */,
 				275B55231AC86A5E00EE3517 /* Frameworks */,
 				275B55241AC86A5E00EE3517 /* Resources */,
+				13F36B700B61D12C4418A199 /* Embed Pods Frameworks */,
+				61451596AD24250B59E04B03 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -234,6 +248,51 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		13F36B700B61D12C4418A199 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TurnstoneTests/Pods-TurnstoneTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F324B1CE5601E3539FD32D6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		61451596AD24250B59E04B03 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TurnstoneTests/Pods-TurnstoneTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		673FD8818B81B01827020923 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -286,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				275B55381AC86B8C00EE3517 /* Turnstone.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +453,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F30AAB6CFE7F121AAC564EC5 /* Pods-Turnstone.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -404,6 +465,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -411,6 +473,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 196599BEB4A8F403F2A9806B /* Pods-Turnstone.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -427,6 +490,7 @@
 		};
 		275B55351AC86A5E00EE3517 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91A20611906EEF89C1D60783 /* Pods-TurnstoneTests.debug.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -445,6 +509,7 @@
 		};
 		275B55361AC86A5E00EE3517 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3C60C2000A070F6C3000947 /* Pods-TurnstoneTests.release.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (

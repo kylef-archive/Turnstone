@@ -6,6 +6,6 @@ target 'Turnstone' do
 end
 
 target 'TurnstoneTests' do
-
+  podspec
 end
 
