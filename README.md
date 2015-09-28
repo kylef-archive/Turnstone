@@ -16,16 +16,17 @@ pod 'Turnstone'
 
 ```swift
 import Turnstone
+import Inquiline
 
 var turnstone = Turnstone()
 
-turnstone.addRoute("/") { environ, parameters in
-  return ("200 OK", [], "Root URI")
+turnstone.addRoute("/") { request in
+  return Response(.Ok, body: "Root URI")
 }
 
-turnstone.addRoute("/tasks/{id}") { environ, parameters in
+turnstone.addRoute("/tasks/{id}") { request, parameters in
   let id = parameters["id"]!
-  return ("200 OK", [], "Task \(id)")
+  return Response(.Ok, body: "Task \(id)")
 }
 
 serve("localhost", 8080, turnstone.nest)
