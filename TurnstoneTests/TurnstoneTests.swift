@@ -1,49 +1,46 @@
-//
-//  TurnstoneTests.swift
-//  TurnstoneTests
-//
-//  Created by Kyle Fuller on 29/03/2015.
-//  Copyright (c) 2015 Cocode. All rights reserved.
-//
-
-import Foundation
 import XCTest
+import Nest
+import Inquiline
 import Turnstone
 
 class TurnstoneTests: XCTestCase {
   var turnstone = Turnstone()
 
   func testReturns404ForUnhandledURIs() {
-    let response = turnstone.nest([:])
-    XCTAssertEqual(response.0, "404 NOT FOUND")
+    let request = Request(method: "GET", path: "/")
+    let response = turnstone.nest(request)
+    XCTAssertEqual(response.statusLine, "404 NOT FOUND")
   }
 
   func testCustomHandlerForUnhandledURIs() {
-    turnstone.notFoundHandler = { environ in
-      return ("200 CUSTOM NOT FOUND", [], "Custom Not Found")
+    turnstone.notFoundHandler = { request in
+      return Response(.NotFound, body: "Custom 404")
     }
 
-    let response = turnstone.nest([:])
-    XCTAssertEqual(response.2!, "Custom Not Found")
+    let request = Request(method: "GET", path: "/")
+    let response = turnstone.nest(request)
+    XCTAssertEqual(response.body, "Custom 404")
   }
 
   func testRegisteredURI() {
-    turnstone.addRoute("/") { environ in
-      return ("200 OK", [], "Root URI")
+    turnstone.addNestRoute("/") { request in
+      return Response(.Ok, body: "Root URI")
     }
 
-    let response = turnstone.nest(["PATH_INFO": "/"])
-    XCTAssertEqual(response.0, "200 OK")
+    let request = Request(method: "GET", path: "/")
+    let response = turnstone.nest(request)
+    XCTAssertEqual(response.statusLine, "200 OK")
   }
 
   func testRegisteredURIVariables() {
     turnstone.addRoute("/tasks/{id}") { environ, parameters in
       let id = parameters["id"]!
-      return ("200 OK", [], "Task \(id)")
+      return Response(.Ok, body: "Task \(id)")
     }
 
-    let response = turnstone.nest(["PATH_INFO": "/tasks/5"])
-    XCTAssertEqual(response.0, "200 OK")
-    XCTAssertEqual(response.2!, "Task 5")
+    let request = Request(method: "GET", path: "/tasks/5")
+    let response = turnstone.nest(request)
+    XCTAssertEqual(response.statusLine, "200 OK")
+    XCTAssertEqual(response.body, "Task 5")
   }
 }
