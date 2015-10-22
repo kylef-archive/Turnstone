@@ -35,4 +35,3 @@ serve("localhost", 8080, turnstone.nest)
 ## License
 
 Turnstone is released under the BSD license. See [LICENSE](LICENSE).
-

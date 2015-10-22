@@ -1,6 +1,4 @@
 language: objective-c
 osx_image: xcode7
-script:
-- set -o pipefail && xcodebuild -workspace Turnstone.xcworkspace -scheme Turnstone test -sdk macosx | xcpretty -c
-- pod lib lint
-
+install: brew install --HEAD kylef/formulae/conche
+script: conche test
