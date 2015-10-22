@@ -18,7 +18,7 @@ pod 'Turnstone'
 import Turnstone
 import Inquiline
 
-var turnstone = Turnstone()
+let turnstone = Turnstone()
 
 turnstone.addRoute("/") { request in
   return Response(.Ok, body: "Root URI")

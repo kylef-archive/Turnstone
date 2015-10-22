@@ -5,7 +5,7 @@ import Turnstone
 
 
 describe("Turnstone") {
-  var turnstone = Turnstone()
+  let turnstone = Turnstone()
 
   turnstone.notFoundHandler = { request in
     return Response(.NotFound, body: "Custom 404")
